@@ -71,7 +71,13 @@ class MemoRow:
 
 def fetch_search_html(session: requests.Session) -> str:
     r = session.get(SEARCH_URL, timeout=30)
-    r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+    def fetch_search_html():
+    url = "https://infomemo.theocc.com/infomemo/search"
+    headers = {
+        'User-Agent': 'Mozilla/5.0',
+    }
+    r = requests.get(url, headers=headers)
+    r.raise_for_status()
     return r.text
 
 def parse_search_listing(html: str) -> List[MemoRow]:
