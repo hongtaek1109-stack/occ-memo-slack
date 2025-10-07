@@ -71,7 +71,7 @@ class MemoRow:
 
 def fetch_search_html(session: requests.Session) -> str:
     r = session.get(SEARCH_URL, timeout=30)
-    r.raise_for_status()
+    r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
     return r.text
 
 def parse_search_listing(html: str) -> List[MemoRow]:
