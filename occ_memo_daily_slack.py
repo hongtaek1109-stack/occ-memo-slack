@@ -71,7 +71,7 @@ class MemoRow:
 
 def fetch_search_html(session: requests.Session) -> str:
     r = session.get(SEARCH_URL, timeout=30)
-def fetch_search_html():
+def fetch_search_html(session):
     url = "https://infomemo.theocc.com/infomemo/search"
     headers = {
         'User-Agent': 'Mozilla/5.0',
